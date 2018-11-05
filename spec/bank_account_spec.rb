@@ -21,23 +21,39 @@ describe BankAccount do
     it 'creates transaction with corresponding information' do
       Timecop.freeze(Time.parse('3 October 2018'))
       account.add_deposit(200)
-      expect(account.transactions).to eq [{date: '03/10/2018', type: 'deposit', amount: 200, current_balance: 200}]
+      expect(account.transactions).to eq [{
+        date: '03/10/2018',
+        type: 'deposit',
+        amount: 200,
+        current_balance: 200
+      }]
     end
   end
 
   describe '#add_withdrawal' do
-    it 'removes amount from balance' do
+    before do
+      Timecop.freeze(Time.parse('3 October 2018'))
       account.add_deposit(200)
+      Timecop.freeze(Time.parse('4 November 2018'))
       account.add_withdrawal(50)
+    end
+
+    it 'removes amount from balance' do
       expect(account.balance).to eq 150
     end
 
     it 'creates transaction with corresponding information' do
-      Timecop.freeze(Time.parse('3 October 2018'))
-      account.add_deposit(200)
-      account.add_withdrawal(50)
-      expect(account.transactions).to eq [{date: '03/10/2018', type: 'deposit', amount: 200, current_balance: 200},
-        {date: '03/10/2018', type: 'withdrawal', amount: 50, current_balance: 150}]
+      expect(account.transactions).to eq [{
+        date: '03/10/2018',
+        type: 'deposit',
+        amount: 200,
+        current_balance: 200
+      }, {
+        date: '04/11/2018',
+        type: 'withdrawal',
+        amount: 50,
+        current_balance: 150
+      }]
     end
   end
 end
