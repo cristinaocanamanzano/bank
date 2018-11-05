@@ -5,7 +5,7 @@ describe BankAccount do
 
   describe '#initialize' do
     it 'initializes account with a total balance of 0' do
-      expect(account.balance).to eq 0
+      expect(account.balance).to eq 0.00
     end
     it 'initializes account with an empty array of transactions' do
       expect(account.transactions).to eq []

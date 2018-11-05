@@ -1,23 +1,22 @@
 require 'date'
+require_relative 'statement_printer'
 
 class BankAccount
   attr_reader :balance, :transactions
 
   def initialize
-    @balance = 0
+    @balance = 0.00
     @transactions = []
   end
 
   def add_deposit(amount)
     update_balance('deposit', amount)
-    date = date_printer
-    @transactions << {date: date, type: 'deposit', amount: amount, current_balance: @balance}
+    @transactions << {date: date_printer, type: 'deposit', amount: amount, current_balance: @balance}
   end
 
   def add_withdrawal(amount)
     update_balance('withdrawal', amount)
-    date = date_printer
-    @transactions << {date: date, type: 'withdrawal', amount: amount, current_balance: @balance}
+    @transactions << {date: date_printer, type: 'withdrawal', amount: amount, current_balance: @balance}
   end
 
   private
