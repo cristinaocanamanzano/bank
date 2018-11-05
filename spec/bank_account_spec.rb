@@ -11,4 +11,11 @@ describe BankAccount do
       expect(account.transactions).to eq []
     end
   end
+
+  describe '#add_deposit' do
+    it 'adds amount to balance' do
+      account.add_deposit(200)
+      expect(account.balance).to eq 200
+    end
+  end
 end
