@@ -1,3 +1,5 @@
+require 'date'
+
 class BankAccount
   attr_reader :balance, :transactions
 
@@ -7,12 +9,20 @@ class BankAccount
   end
 
   def add_deposit(amount)
+    @date = date_printer
     @balance += amount
-    @transactions << {type: 'deposit', amount: amount, current_balance: @balance}
+    @transactions << {date: @date, type: 'deposit', amount: amount, current_balance: @balance}
   end
 
   def add_withdrawal(amount)
+    @date = date_printer
     @balance -= amount
-    @transactions << {type: 'withdrawal', amount: amount, current_balance: @balance}
+    @transactions << {date: @date, type: 'withdrawal', amount: amount, current_balance: @balance}
+  end
+
+  private
+
+  def date_printer
+    Date.today.strftime('%d/%m/%Y')
   end
 end
