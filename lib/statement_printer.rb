@@ -3,7 +3,7 @@ class StatementPrinter
   HEADING = "date || credit || debit || balance"
 
   def print_bank_statement(account)
-    body = transaction_array_to_string(transactions_array(account))
+    body = transactions_string(transactions_array(account))
     text_to_print = HEADING + "\n" + body
     puts text_to_print
   end
@@ -20,7 +20,7 @@ class StatementPrinter
     end
   end
 
-  def transaction_array_to_string(array)
+  def transactions_string(array)
     array.join("\n")
   end
 
