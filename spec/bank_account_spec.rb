@@ -40,5 +40,4 @@ describe BankAccount do
         {date: '03/10/2018', type: 'withdrawal', amount: 50, current_balance: 150}]
     end
   end
-
 end
