@@ -17,5 +17,25 @@ describe BankAccount do
       account.add_deposit(200)
       expect(account.balance).to eq 200
     end
+
+    it 'creates transaction with corresponding information' do
+      account.add_deposit(200)
+      expect(account.transactions).to eq [{type: 'deposit', amount: 200, current_balance: 200}]
+    end
+  end
+
+  describe '#add_withdrawal' do
+    it 'removes amount from balance' do
+      account.add_deposit(200)
+      account.add_withdrawal(50)
+      expect(account.balance).to eq 150
+    end
+
+    it 'creates transaction with corresponding information' do
+      account.add_deposit(200)
+      account.add_withdrawal(50)
+      expect(account.transactions).to eq [{type: 'deposit', amount: 200, current_balance: 200}, {type: 'withdrawal', amount: 50, current_balance: 150}]
+    end
+
   end
 end

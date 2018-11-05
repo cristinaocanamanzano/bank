@@ -8,5 +8,11 @@ class BankAccount
 
   def add_deposit(amount)
     @balance += amount
+    @transactions << {type: 'deposit', amount: amount, current_balance: @balance}
+  end
+
+  def add_withdrawal(amount)
+    @balance -= amount
+    @transactions << {type: 'withdrawal', amount: amount, current_balance: @balance}
   end
 end
