@@ -12,14 +12,18 @@ class StatementPrinter
   def transactions_array(account)
     account.transactions.reverse.map do |trans|
       if trans[:type] == 'deposit'
-        "#{trans[:date]} || #{sprintf('%.2f',(trans[:amount]))} || || #{sprintf('%.2f',(trans[:current_balance]))}"
+        "#{trans[:date]} || #{two_decimals(trans[:amount])} || || #{sprintf('%.2f',(trans[:current_balance]))}"
       else
-        "#{trans[:date]} || || #{sprintf('%.2f',(trans[:amount]))} || #{sprintf('%.2f',(trans[:current_balance]))}"
+        "#{trans[:date]} || || #{two_decimals(trans[:amount])} || #{sprintf('%.2f',(trans[:current_balance]))}"
       end
     end
   end
 
   def transactions_string(array)
     array.join("\n")
+  end
+
+  def two_decimals(amount)
+    sprintf('%.2f',amount)
   end
 end
