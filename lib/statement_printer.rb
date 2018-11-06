@@ -1,5 +1,5 @@
 class StatementPrinter
-  HEADING = 'date || credit || debit || balance'
+  HEADING = 'date || credit || debit || balance'.freeze
 
   def print_bank_statement(account)
     body = transactions_string(transactions_array(account))
@@ -12,12 +12,11 @@ class StatementPrinter
   def transactions_array(account)
     transactions = account.transactions.reverse
     transactions.map do |trans|
-        "#{trans[:date]} || #{trans[:deposit]} || #{trans[:withdrawal]} || #{trans[:current_balance]}"
+      "#{trans[:date]} || #{trans[:deposit]} || #{trans[:withdrawal]} || #{trans[:current_balance]}"
     end
   end
 
   def transactions_string(array)
     array.join("\n")
   end
-
 end

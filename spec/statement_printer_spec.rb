@@ -2,7 +2,8 @@ require './lib/statement_printer'
 
 describe StatementPrinter do
   subject(:printer) { described_class.new }
-  let(:account) do double :account, transactions: [{
+  let(:account) do
+    double :account, transactions: [{
       date: '03/10/2018',
       type: 'deposit',
       deposit: '200.00',

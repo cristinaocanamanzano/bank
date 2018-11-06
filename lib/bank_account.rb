@@ -40,7 +40,6 @@ class BankAccount
   end
 
   def two_decimals(amount)
-    sprintf('%.2f',amount)
+    format('%.2f', amount)
   end
-
 end

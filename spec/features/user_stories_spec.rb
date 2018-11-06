@@ -1,7 +1,6 @@
 require './lib/bank_account'
 
 describe 'User stories' do
-
   it 'so that they can add money to their account, user can add a deposit' do
     account = BankAccount.new
     expect { account.add_deposit(200) }.not_to raise_error
