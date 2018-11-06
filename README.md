@@ -38,7 +38,7 @@ To solve this challenge, two different classes have been created:
 Specifications
 -------
 
-Full instructions can be found [here] (https://github.com/makersacademy/course/blob/master/individual_challenges/bank_tech_test.md).
+Full instructions can be found [here](https://github.com/makersacademy/course/blob/master/individual_challenges/bank_tech_test.md).
 
 User Stories
 -------
