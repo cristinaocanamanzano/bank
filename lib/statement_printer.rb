@@ -11,7 +11,7 @@ class StatementPrinter
 
   def transactions_array(account)
     account.transactions.reverse.map do |trans|
-        "#{trans[:date]} || #{trans[:deposit]} || #{trans[:withdrawal]} || #{two_decimals(trans[:current_balance])}"
+        "#{trans[:date]} || #{trans[:deposit]} || #{trans[:withdrawal]} || #{trans[:current_balance]}"
     end
   end
 
@@ -19,7 +19,4 @@ class StatementPrinter
     array.join("\n")
   end
 
-  def two_decimals(amount)
-    sprintf('%.2f',amount)
-  end
 end

@@ -26,9 +26,9 @@ describe BankAccount do
       expect(account.transactions).to eq [{
         date: '03/10/2018',
         type: 'deposit',
-        deposit: 200,
+        deposit: '200.00',
         withdrawal: ' ',
-        current_balance: 200
+        current_balance: '200.00'
       }]
     end
   end
@@ -49,15 +49,15 @@ describe BankAccount do
       expect(account.transactions).to eq [{
         date: '03/10/2018',
         type: 'deposit',
-        deposit: 200,
+        deposit: '200.00',
         withdrawal: ' ',
-        current_balance: 200
+        current_balance: '200.00'
       }, {
         date: '04/11/2018',
         type: 'withdrawal',
         deposit: ' ',
-        withdrawal: 50,
-        current_balance: 150
+        withdrawal: '50.00',
+        current_balance: '150.00'
       }]
     end
   end
