@@ -11,22 +11,12 @@ class BankAccount
 
   def add_deposit(amount)
     update_balance('deposit', amount)
-    @transactions << {
-      date: date_printer,
-      type: 'deposit',
-      amount: amount,
-      current_balance: @balance
-    }
+    add_transaction('deposit', amount)
   end
 
   def add_withdrawal(amount)
     update_balance('withdrawal', amount)
-    @transactions << {
-      date: date_printer,
-      type: 'withdrawal',
-      amount: amount,
-      current_balance: @balance
-    }
+    add_transaction('withdrawal', amount)
   end
 
   private
@@ -37,5 +27,14 @@ class BankAccount
 
   def date_printer
     Date.today.strftime('%d/%m/%Y')
+  end
+
+  def add_transaction(type, amount)
+    @transactions << {
+      date: date_printer,
+      type: type,
+      amount: amount,
+      current_balance: @balance
+    }
   end
 end

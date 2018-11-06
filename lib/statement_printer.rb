@@ -1,5 +1,5 @@
 class StatementPrinter
-  HEADING = 'date || credit || debit || balance'.freeze
+  HEADING = 'date || credit || debit || balance'
 
   def print_bank_statement(account)
     body = transactions_string(transactions_array(account))
