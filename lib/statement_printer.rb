@@ -10,7 +10,8 @@ class StatementPrinter
   private
 
   def transactions_array(account)
-    account.transactions.reverse.map do |trans|
+    transactions = account.transactions.reverse
+    transactions.map do |trans|
         "#{trans[:date]} || #{trans[:deposit]} || #{trans[:withdrawal]} || #{trans[:current_balance]}"
     end
   end
